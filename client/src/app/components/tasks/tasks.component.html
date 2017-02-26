@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My Details</title>
+</head>
+<body>
+<form (submit)="addTasks($event)">
+	<div class="form-group well" style="height:80px">
+		
+		<div class="col-md-4">
+			<input type="text" class="form-control" [(ngModel)]="name" name="name" placeholder="Enter the name1as" />
+		</div>
+
+		<div class="col-md-4">
+			<input type="text" class="form-control" [(ngModel)]="age" name="age" placeholder="Enter the age" />
+		</div>
+
+		<div class="col-md-4">
+			<input type="submit" value="Add" class="btn btn-success"/>
+		</div>
+
+	</div>
+</form>
+
+<div>
+	<div *ngFor="let task of tasks" >
+		<div class=".p-3" style="height:40px">
+			<div class="col-md-1">
+				<input type="checkbox"  />
+			</div>
+			
+			<div class="col-md-6">
+				{{task.name}}
+			</div>
+			
+			<div class="col-md-1">
+				{{task.age}}
+			</div>
+
+			<div class="col-md-2">
+				<input type="button" value="delete" (click)="deleteTask(task._id)" class="btn btn-danger"/>
+			</div>
+
+			<div class="col-md-2">
+				<input type="button" value="update" (click)="updateTask(task._id)" class="btn btn-primary"/>
+			</div>
+		</div>
+	</div>
+</div>
+<br>
+<div>
+	<h3>Join Two tables</h3>
+	<hr>
+	<div *ngFor="let detail of details" class="well">
+
+		<div class="col-md-4">
+			{{detail.name}}
+		</div>
+		
+		<div class="col-md-4">
+			{{detail.age}}
+		</div>
+
+		<div class="col-md-4">
+			{{detail.alldetails[0]?.mdn}}
+		</div>
+
+	</div>
+</div>
+</body>
+</html>
